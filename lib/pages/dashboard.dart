@@ -21,7 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: myDrawer(),
+      drawer: myDrawer(context),
       appBar: AppBar(
         title: Text("Big Foot"),
       ),

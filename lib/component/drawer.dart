@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget myDrawer() {
+Widget myDrawer(context) {
   return Drawer(
     child: ListView(
       children: [
@@ -14,6 +14,13 @@ Widget myDrawer() {
         ListTile(
           leading: Icon(Icons.dashboard),
           title: Text("Dashboard"),
+        ),
+        ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, 'offer');
+          },
+          leading: Icon(Icons.dashboard),
+          title: Text("Offer"),
         ),
         ListTile(
           leading: Icon(Icons.sports_soccer_outlined),

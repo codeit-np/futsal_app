@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:futsal_app/pages/dashboard.dart';
 import 'package:futsal_app/pages/events.dart';
 import 'package:futsal_app/pages/login.dart';
+import 'package:futsal_app/pages/offer.dart';
 import 'package:futsal_app/pages/register.dart';
 import 'package:futsal_app/pages/splash.dart';
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         'login': (context) => LoginScreen(),
         'register': (context) => RegisterScreen(),
         'dashboard': (context) => DashboardScreen(),
-        'event': (context) => EventScreen()
+        'event': (context) => EventScreen(),
+        'offer': (context) => OfferScreen(),
       },
     );
   }
