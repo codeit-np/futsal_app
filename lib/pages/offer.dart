@@ -24,45 +24,66 @@ class _OfferScreenState extends State<OfferScreen> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Games"),
-                  Text("Time"),
-                  Text("Price"),
-                ],
-              ),
-              FutureBuilder(
-                future: getDetails(),
-                builder: (context, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.waiting:
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    default:
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (context, index) {
-                          var mydata = snapshot.data[index];
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(mydata['game']),
-                              Text(mydata['time']),
-                              Text(mydata['price']),
-                            ],
-                          );
-                        },
-                      );
-                  }
-                },
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Games",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      "Time",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      "Price",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                FutureBuilder(
+                  future: getDetails(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      default:
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, index) {
+                            var mydata = snapshot.data[index];
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  mydata['game'],
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                Text(
+                                  mydata['time'],
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                Text(
+                                  mydata['price'].toString(),
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                    }
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

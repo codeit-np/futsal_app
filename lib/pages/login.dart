@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:futsal_app/api/api.dart';
 import 'package:futsal_app/component/textfield.dart';
 import 'package:futsal_app/const/const.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -52,6 +53,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     var result = json.decode(response.body);
                                     print(result);
                                     if (result['message'] == "success") {
+                                      SharedPreferences preferences =
+                                          await SharedPreferences.getInstance();
+                                      preferences.setString(
+                                          'token', result['token']);
                                       Navigator.popAndPushNamed(
                                           context, 'dashboard');
                                     } else {

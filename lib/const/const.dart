@@ -6,5 +6,5 @@ TextEditingController password = TextEditingController();
 TextEditingController teamname = TextEditingController();
 TextEditingController phone = TextEditingController();
 
-String link = "http://192.168.1.100:8000/";
+String link = "http://192.168.0.100:8000/";
 String baseURL = link + "api/";

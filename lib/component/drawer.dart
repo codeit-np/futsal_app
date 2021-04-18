@@ -23,6 +23,9 @@ Widget myDrawer(context) {
           title: Text("Offer"),
         ),
         ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, 'teams');
+          },
           leading: Icon(Icons.sports_soccer_outlined),
           title: Text("Invite Challange"),
         ),

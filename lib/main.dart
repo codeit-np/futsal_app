@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:futsal_app/pages/challange.dart';
 import 'package:futsal_app/pages/dashboard.dart';
 import 'package:futsal_app/pages/events.dart';
 import 'package:futsal_app/pages/login.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         'dashboard': (context) => DashboardScreen(),
         'event': (context) => EventScreen(),
         'offer': (context) => OfferScreen(),
+        'teams': (context) => ChallangeScreen(),
       },
     );
   }
