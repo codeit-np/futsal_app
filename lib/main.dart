@@ -4,11 +4,20 @@ import 'package:futsal_app/pages/dashboard.dart';
 import 'package:futsal_app/pages/events.dart';
 import 'package:futsal_app/pages/login.dart';
 import 'package:futsal_app/pages/offer.dart';
+import 'package:futsal_app/pages/profile.dart';
 import 'package:futsal_app/pages/register.dart';
 import 'package:futsal_app/pages/splash.dart';
+import 'package:futsal_app/pages/teamdetails.dart';
+import 'package:futsal_app/provider/provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => PlayerProvider()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,6 +38,8 @@ class MyApp extends StatelessWidget {
         'event': (context) => EventScreen(),
         'offer': (context) => OfferScreen(),
         'teams': (context) => ChallangeScreen(),
+        'profile': (context) => ProfileScreen(),
+        'teamprofile': (context) => TeamProfile(),
       },
     );
   }

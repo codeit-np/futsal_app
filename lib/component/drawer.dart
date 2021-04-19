@@ -30,6 +30,13 @@ Widget myDrawer(context) {
           title: Text("Invite Challange"),
         ),
         ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, 'profile');
+          },
+          leading: Icon(Icons.sports_soccer_outlined),
+          title: Text("Team Profile"),
+        ),
+        ListTile(
           leading: Icon(Icons.people_alt_rounded),
           title: Text("Registered Futsal Team"),
         ),
