@@ -41,6 +41,9 @@ Widget myDrawer(context) {
           title: Text("Registered Futsal Team"),
         ),
         ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, 'booking');
+          },
           leading: Icon(Icons.event_note_sharp),
           title: Text("Booking"),
         ),
