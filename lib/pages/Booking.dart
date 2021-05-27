@@ -86,6 +86,24 @@ class _BookingScreenState extends State<BookingScreen> {
                         var response = await Api().postData(data, 'booking');
                         var result = json.decode(response.body);
                         print(result);
+                        if (result['message'] == 'success') {
+                          showDialog(
+                              context: context,
+                              builder: (builder) {
+                                return AlertDialog(
+                                  title: Text("Message"),
+                                  content: Text(
+                                      "Message sent, We will contact you soon"),
+                                  actions: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("OK"))
+                                  ],
+                                );
+                              });
+                        }
                       }
                     },
                     child: Text("Book Now"))
